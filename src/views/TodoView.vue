@@ -1,5 +1,5 @@
 <template>
-  <section class="container my-5">
+  <section class="container mb-5 mt-1">
     <div class="columns is-centered">
       <div class="column is-half">
         <article class="panel is-link ">
