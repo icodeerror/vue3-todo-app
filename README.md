@@ -1,6 +1,6 @@
 # todo
 
-Demo check https://todo.taidy.me
+Demo: https://todo.taidy.me
 
 ## Recommended IDE Setup
 
