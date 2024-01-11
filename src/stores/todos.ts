@@ -94,7 +94,6 @@ export const useTodos = defineStore('todos', () => {
         const objIndex = todos.value.findIndex((obj) => obj.id === todo.id);
 
         todos.value[objIndex].completed = !todos.value[objIndex].completed;
-        console.log('Index', objIndex);
     };
 
     return { todos, filteredTodos, addTodo, filter, filterTodo, markComplete, deleteTodo };
