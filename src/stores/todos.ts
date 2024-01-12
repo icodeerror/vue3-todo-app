@@ -57,9 +57,8 @@ export const useTodos = defineStore('todos', () => {
             },
         ];
 
-    const todos = ref<Array<TodoModel>>(defaultTodos);
+    const todos = ref<Array<TodoModel>>([...defaultTodos]);
     const filter = ref<string>('all');
-    const nextId = ref(todos.value.length);
 
     const completedTodos = computed(() => {
         return todos.value.filter((todo) => todo.completed);
@@ -82,18 +81,21 @@ export const useTodos = defineStore('todos', () => {
     }
 
     const addTodo = (title: string) => {
-        todos.value.push({ id: nextId.value++, title, completed: false });
+        todos.value.push({ id: todos.value.length + 1, title, completed: false });
     };
 
     const deleteTodo = (todo: Record<string, any>) => {
         const objIndex = todos.value.findIndex((obj) => obj.id === todo.id);
         todos.value.splice(objIndex, 1);
+
+
     };
 
     const markComplete = (todo: Record<string, any>) => {
         const objIndex = todos.value.findIndex((obj) => obj.id === todo.id);
 
         todos.value[objIndex].completed = !todos.value[objIndex].completed;
+
     };
 
     return { todos, filteredTodos, addTodo, filter, filterTodo, markComplete, deleteTodo };
